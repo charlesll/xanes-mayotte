@@ -498,7 +498,7 @@ axes[1].set_ylim(1.3,1.7)
 plt.xlabel("Seconds after exposure")
 fig.text(0.04, 0.5, 'Normalized absorbance', va='center', rotation='vertical')
 plt.tight_layout(pad=2.0)
-plt.savefig('./figures/Fe_beam_damage.pdf')
+plt.savefig('../figures/Fe_beam_damage.pdf')
 plt.close()
 print("  Saved: ../figures/Fe_beam_damage.pdf")
 
