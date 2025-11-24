@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Dev directories
+dev/
+dev_notes/
+
+# Environment
+.env
+.deps_installed
+
+# OS specific
+Thumbs.db
+.DS_Store
+
+# Large files
+*.zip
+*.tar.gz
+*.hdf5
+*.h5
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Figures
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.svg

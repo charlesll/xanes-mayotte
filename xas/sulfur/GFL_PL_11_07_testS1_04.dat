@@ -1,0 +1,47 @@
+# XAS / LUCIA / SOLEIL : 
+# Date : ven. 28 mai 2021
+#
+# TARGET : GFL_PL_11_07_testS1
+# Total number of scan(s) : 5
+# Scan N° : 2
+# Coordinates : 
+#               Horizontal : -682
+#               Vertical : -11270.1
+#               Depth : 9176.2
+#               Rotation : 4.996
+# ROI window : 
+#               ROI_inf : 550
+#               ROI_sup : 600
+#
+# Start of this scan : 13:42:41
+# End of this scan : 13:43:12
+#
+# I0 current at start (µA) : 0
+# USER COMMENTS : 
+# 
+# EXPERIMENTAL CONFIGURATION : 
+# Undulator Harmonic : 7       Offset : nan
+# Undulator Polarization : 0
+# Low pass filter angle (°) : 0.800577         translation (µm) : -354
+# Monochromator Crystal : 1: Si 111
+#
+# SCAN : 
+# Range		From(eV)	To(eV)		Step(eV)	Time(sec)
+## 1		2475		2490		1		0.5
+#
+# Energy	Io		FY		DeadTime		FY_c		TEY		It		Ctr4
+2475		43707		0		0.304192		0		27		45		0
+2476		43828		1		0.480896		1.00483		30		43		0
+2477		43874		0		0.156928		0		33		44		0
+2478		43892		2		0.487936		2.00981		34		44		0
+2479		44242		1		0.650304		1.00655		28		42		0
+2480		44518		0		0.32288		0		31		40		0
+2481		44390		0		0.80096		0		26		44		0
+2482		44736		0		0.399488		0		28		45		0
+2483		44944		1		0.31744		1.00318		31		40		0
+2484		44856		0		0.140416		0		39		42		0
+2485		45417		0		0.46816		0		26		44		0
+2486		45614		1		0.39968		1.00401		31		42		0
+2487		45715		1		0.15232		1.00153		32		41		0
+2488		45843		0		0.305408		0		32		44		0
+2489		46217		0		0.407168		0		29		45		0

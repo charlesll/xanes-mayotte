@@ -1,0 +1,67 @@
+# XAS / LUCIA / SOLEIL : 
+# Date : ven. 28 mai 2021
+#
+# TARGET : test_pourri
+# Total number of scan(s) : 1
+# Scan N° : 1
+# Coordinates : 
+#               Horizontal : 10.952
+#               Vertical : 60.707
+#               Depth : 12273.9
+#               Rotation : 4.996
+# ROI window : 
+#               ROI_inf : 1295
+#               ROI_sup : 1365
+#
+# Start of this scan : 00:47:12
+# End of this scan : 00:47:12
+#
+# I0 current at start (µA) : 0
+# USER COMMENTS : 
+# 
+# EXPERIMENTAL CONFIGURATION : 
+# Undulator Harmonic : 21       Offset : nan
+# Undulator Polarization : 0
+# Low pass filter angle (°) : 0.319638         translation (µm) : -147.5
+# Monochromator Crystal : 3: Si311
+#
+# SCAN : 
+# Range		From(eV)	To(eV)		Step(eV)	Time(sec)
+## 1		7070		7105		2		1
+## 2		7106		7121		1		1
+#
+# Energy	Io		FY		DeadTime		FY_c		TEY		It		Ctr4
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN

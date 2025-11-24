@@ -1,0 +1,72 @@
+# Ignorer les fichiers inutiles dans l'image Docker
+# pour réduire la taille et améliorer la sécurité
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.Python
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation (à inclure si nécessaire)
+*.md
+!README.md
+
+# Résultats précédents (seront générés dans le container)
+figures/*
+results/*
+*.pdf
+*.csv
+
+# Données temporaires
+*.tmp
+*.bak
+*.log
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Scripts non nécessaires (docker-run.sh utilisé en dehors du container)
+docker-run.sh
+
+# Fichiers de développement
+dev/
+modelling/
+carto_flyscan/
+nrm/
+
+# Garder seulement l'essentiel
+!analysis_publication.py
+!requirements.txt
+!src/
+!xas/
+!tables/
+!Tables/

@@ -1,0 +1,245 @@
+# XAS / LUCIA / SOLEIL : 
+# Date : sam. 29 mai 2021
+#
+# TARGET : GFL_PL_11_07_carto1lnew_S_POI12
+# Total number of scan(s) : 1
+# Scan N° : 1
+# Coordinates : 
+#               Horizontal : 540.911
+#               Vertical : -1076.58
+#               Depth : 9059.8
+#               Rotation : 5.002
+# ROI window : 
+#               ROI_inf : 490
+#               ROI_sup : 525
+#
+# Start of this scan : 14:26:37
+# End of this scan : 14:27:06
+#
+# I0 current at start (µA) : 0
+# USER COMMENTS : 
+# 
+# EXPERIMENTAL CONFIGURATION : 
+# Undulator Harmonic : 5       Offset : nan
+# Undulator Polarization : 0
+# Low pass filter angle (°) : 0.800768         translation (µm) : -354
+# Monochromator Crystal : 1: Si 111
+#
+# SCAN : 
+# Range		From(eV)	To(eV)		Step(eV)	Time(sec)
+## 1		2455		2465		1		1
+## 2		2465.2		2500		0.2		1
+## 3		2501		2525		1		1
+#
+# Energy	Io		FY		DeadTime		FY_c		TEY		It		Ctr4
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN
+NaN		NaN		NaN		NaN		NaN		NaN		NaN		NaN

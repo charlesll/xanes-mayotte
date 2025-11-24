@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  xas-analysis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mayotte-xas:1.0.0
+    container_name: mayotte_xas_analysis
+    
+    # Monter les volumes pour accès aux données et récupération des résultats
+    volumes:
+      # Données d'entrée (lecture seule)
+      - ./xas:/home/xasuser/mayotte/xas:ro
+      - ./tables/liste.xlsx:/home/xasuser/mayotte/tables/liste.xlsx:ro
+      
+      # Résultats (lecture-écriture)
+      - ./figures:/home/xasuser/mayotte/figures
+      - ./results:/home/xasuser/mayotte/results
+      
+      # Code source (pour développement, commentez en production)
+      # - ./analysis_publication.py:/home/xasuser/mayotte/analysis_publication.py:ro
+      # - ./src:/home/xasuser/mayotte/src:ro
+    
+    # Variables d'environnement (optionnel)
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MATPLOTLIB_BACKEND=Agg
+    
+    # Ressources (ajustez selon vos besoins)
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '4.0'
+    #       memory: 8G
+    #     reservations:
+    #       cpus: '2.0'
+    #       memory: 4G
+    
+    # Commande (surchargeable)
+    # command: ["--verbose"]  # exemple pour options futures
+    
+    # Politique de redémarrage
+    restart: "no"
+    
+    # Réseau (si besoin de communiquer avec autres conteneurs)
+    # networks:
+    #   - xas-network
+
+# Définition réseau (optionnel)
+# networks:
+#   xas-network:
+#     driver: bridge
