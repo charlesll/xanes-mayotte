@@ -446,9 +446,8 @@ print("="*70)
 print("\n[5.1] Analyzing Fe beam damage...")
 dataliste_damage = pd.read_excel("../tables/liste.xlsx", sheet_name="Fe_damage")
 
-def make_Fe_damage_subplot(ax, liste):
-    """Plot Fe beam damage time series"""
-    cm = plt.cm.get_cmap('cool')
+def measure_Fe_damage(liste):
+    """Function to measure Fe beam damage in spectral time series"""
     I_7112 = np.zeros(len(liste))
     I_7114 = np.zeros(len(liste))
     
@@ -456,55 +455,50 @@ def make_Fe_damage_subplot(ax, liste):
         sp = np.genfromtxt("../xas/iron/" + i, encoding='cp1252')
         x = sp[:, 0]
         y = sp[:, 4] / sp[:, 1]
-        ax.scatter(
-            x, y,
-            c=np.ones(len(sp[:, 0])) * float(count) / float(len(liste)),
-            vmin=0, vmax=1, s=1, cmap=cm
-        )
         
         I_7112[count] = y[(x > 7111.5) & (x < 7112.5)]
         I_7114[count] = y[(x > 7113.5) & (x < 7114.5)]
     
     return I_7112, I_7114
 
-fig, axes = plt.subplots(nrows=2, ncols=1, sharex=True, figsize=(3.22, 5))
-
 # Extract intensity time series
-I_7112_50, I_7114_50 = make_Fe_damage_subplot(
-    plt.subplot(2, 2, 1),
+I_7112_50, I_7114_50 = measure_Fe_damage(
     dataliste_damage.loc[dataliste_damage.loc[:, "test"] == "Test_50", "filename"]
 )
-I_7112_100_1, I_7114_100_1 = make_Fe_damage_subplot(
-    plt.subplot(2, 2, 3),
+I_7112_70, I_7114_70 = measure_Fe_damage(
+    dataliste_damage.loc[dataliste_damage.loc[:, "test"] == "Test_70", "filename"]
+)
+I_7112_100_1, I_7114_100_1 = measure_Fe_damage(
     dataliste_damage.loc[dataliste_damage.loc[:, "test"] == "Test_100-1", "filename"]
 )
-I_7112_100_2, I_7114_100_2 = make_Fe_damage_subplot(
-    plt.subplot(2, 2, 4),
+I_7112_100_2, I_7114_100_2 = measure_Fe_damage(
     dataliste_damage.loc[dataliste_damage.loc[:, "test"] == "Test_100-2", "filename"]
 )
 
-plt.close()
-
 # Plot damage evolution
-fig, axes = plt.subplots(nrows=2, ncols=1, sharex=True, figsize=(3.22, 5))
+fig, axes = plt.subplots(nrows=2, ncols=1,
+                           sharex=True, sharey=False,
+                           figsize=(3.22,5))
 
-axes[0].plot(np.arange(1, len(I_7112_50) + 1) * 30, I_7112_50, "s", label="50 %")
-axes[0].plot(np.arange(1, len(I_7112_100_1) + 1) * 30, I_7112_100_1, "d", label="100 %, series 1")
-axes[0].plot(np.arange(1, len(I_7112_100_2) + 1) * 30, I_7112_100_2, "^", label="100 %, series 2")
-axes[0].legend(loc="best", fontsize=7)
-axes[0].annotate("(a) 7112.0 eV", xy=(0.02, 0.97), xycoords="axes fraction", ha="left", va="top")
-axes[0].set_ylim(1.25, 1.55)
+axes[0].plot(np.arange(1,len(I_7112_50)+1,1)*30, I_7112_50, "s", label="50 %")
+axes[0].plot(np.arange(1,len(I_7112_70)+1,1)*30,I_7112_70, "o", label="70 %")
+axes[0].plot(np.arange(1,len(I_7112_100_1)+1,1)*30,I_7112_100_1, "d", label="100 %, series 1")
+axes[0].plot(np.arange(1,len(I_7112_100_2)+1,1)*30,I_7112_100_2, "^", label="100 %, series 2")
+axes[0].legend(loc="best",fontsize=7)
+axes[0].annotate("(a) 7112.0 eV", xy=(0.02,0.97), xycoords="axes fraction", ha="left", va="top")
+axes[0].set_ylim(1.25,1.55)
 
-axes[1].plot(np.arange(1, len(I_7114_50) + 1) * 30, I_7114_50, "s", label="50 %")
-axes[1].plot(np.arange(1, len(I_7114_100_1) + 1) * 30, I_7114_100_1, "d", label="100 %, series 1")
-axes[1].plot(np.arange(1, len(I_7114_100_2) + 1) * 30, I_7114_100_2, "^", label="100 %, series 2")
-axes[1].annotate("(b) 7114.0 eV", xy=(0.02, 0.97), xycoords="axes fraction", ha="left", va="top")
-axes[1].set_ylim(1.3, 1.7)
+axes[1].plot(np.arange(1,len(I_7112_50)+1,1)*30, I_7114_50, "s", label="50 %")
+axes[1].plot(np.arange(1,len(I_7112_70)+1,1)*30,I_7114_70, "o", label="70 %")
+axes[1].plot(np.arange(1,len(I_7112_100_1)+1,1)*30,I_7114_100_1, "d", label="100 %, series 1")
+axes[1].plot(np.arange(1,len(I_7112_100_2)+1,1)*30,I_7114_100_2, "^", label="100 %, series 2")
+axes[1].annotate("(b) 7114.0 eV", xy=(0.02,0.97), xycoords="axes fraction", ha="left", va="top")
+axes[1].set_ylim(1.3,1.7)
 
-axes[1].set_xlabel("Seconds after exposure")
+plt.xlabel("Seconds after exposure")
 fig.text(0.04, 0.5, 'Normalized absorbance', va='center', rotation='vertical')
 plt.tight_layout(pad=2.0)
-plt.savefig('../figures/Fe_beam_damage.pdf')
+plt.savefig('./figures/Fe_beam_damage.pdf')
 plt.close()
 print("  Saved: ../figures/Fe_beam_damage.pdf")
 
