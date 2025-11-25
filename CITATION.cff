@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+cff-version: 1.1.0
 message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Le Losq"
@@ -24,6 +24,4 @@ authors:
   orcid: "https://orcid.org/0000-0003-1617-143X"
 title: "Data and Code for XAS Analysis and Thermodynamic Modelling for Mayotte Volcanic Samples"
 version: 1.0.0
-doi: 10.5281/zenodo.1234
 date-released: 2025-11-25
-url: "https://github.com/CharlesLeLosq/xanes-mayotte"
