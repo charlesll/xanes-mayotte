@@ -1,0 +1,27 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Le Losq"
+  given-names: "Charles"
+  orcid: "https://orcid.org/0000-0001-8941-9411"
+- family-names: "Moretti"
+  given-names: "Roberto"
+  orcid: "https://orcid.org/0000-0003-2031-5192"
+- family-names: "Médard"
+  given-names: "Étienne"
+  orcid: "https://orcid.org/0000-0002-7040-7442"
+- family-names: "Berthod"
+  given-names: "Carole"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+- family-names: "Schiavi"
+  given-names: "Federica"
+  orcid: "https://orcid.org/0000-0001-9801-1581"
+- family-names: "Trcera"
+  given-names: "Nicolas"
+  orcid: "https://orcid.org/0000-0002-9364-1039"
+- family-names: "Lebas"
+  given-names: "Élodie"
+  orcid: "https://orcid.org/0000-0003-1617-143X"
+title: "charlesll/xanes-mayotte: 1.0.2 (1.0.2)."
+version: 1.0.2
+date-released: 2025-11-25
