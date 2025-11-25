@@ -203,7 +203,7 @@ Mayotte_publication/
 │   └── Microsonde_Mayotte_Lucia.xlsx # analysis results of the various samples
 │
 ├── results/                          # Output: CSV results (read-write)
-│   ├── Fe_.csv                       # Fe redox results
+│   ├── Fe_res.csv                    # Fe redox results
 │   ├── S_res.csv                     # S speciation results
 │   ├── colors.csv                    # Color scheme
 │   ├── dQFM_models.csv               # dFMQ modelling results
@@ -255,10 +255,10 @@ Mayotte_publication/
 - `Sulfur/*.pdf` - Individual S spectra with Gaussian deconvolution
 
 **Results** (`results/`):
-- `Fe_.csv` - Fe redox results (centroid, Fe³⁺/Feᵀᴼᵀ, multiple methods)
+- `Fe_res.csv` - Fe redox results (centroid, Fe³⁺/Feᵀᴼᵀ, multiple methods)
 - `S_res.csv` - S speciation (S⁶⁺/Sᵀᴼᵀ by L2021, J2010, LL2023)
 - `colors.csv` - Consistent color scheme for all samples
-- `Results_synthese.xlsx` - Combined dataset used as input for modelling, manually created from `Fe_.csv` and `S_res.cs`v` as well as other analysis (Boulliung model, Bell MELTS-OSaS, etc.).
+- `Results_synthese.xlsx` - Combined dataset used as input for modelling, manually created from `Fe_res.csv` and `S_res.csv` as well as other analysis (Boulliung model, Bell MELTS-OSaS, etc.).
 
 ### Thermodynamic Modelling Results
 
@@ -270,10 +270,11 @@ Mayotte_publication/
 - `dFMQ_allmethods.pdf` - Comprehensive comparison (MELTS-OSaS, Fe redox, S redox)
 
 **Results** (`results/`):
-- `dQFM_Models.csv` - calculated deviations to the Fayalite-Magnetite-Quartz buffer (ΔQFM):
-  - ΔQFM from Fe data and various models (IPA, KC1991, B2018)
-  - ΔQFM from S data and various models (IPA, J2010, BW2023)
-  - ΔQFM from olivine-spinel-melt silica activity (B2025)
+- `dQFM_models.csv` - calculated deviations to the Fayalite-Magnetite-Quartz buffer (ΔQFM):
+  - Sample names
+  - ΔQFM from Fe data: IPA (Moretti 2005), KC1991, B2018
+  - ΔQFM from S data: IPA (Moretti 2005), J2010, BW2023
+- `modelling/dQFM_Moretti2005_on_Fe3_adjustment.csv` - Legacy format (IPA Fe³⁺ optimization only)
 
 ---
 

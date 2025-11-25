@@ -7,7 +7,7 @@
 
 ## Overview
 
-This script performs thermodynamic modelling of Fe and S redox states in basaltic melts using the Ionic Polymeric Approach (IPA), implemented in the **ctsfg6 Fortran code**.
+This script performs thermodynamic modelling of Fe and S redox states in basanite-to-phonolite glasses using the Ionic Polymeric Approach (IPA), implemented in the **ctsfg6 Fortran code**.
 
 ## Methodology
 
@@ -151,7 +151,7 @@ Contains the calculation of sulfur redox state using the BW2023 model.
 
 ### Results (`results/`)
 
-**`dQFM_Models.csv`**
+**`results/dQFM_models.csv`**
 
 Columns:
 ```
@@ -162,6 +162,14 @@ dQFM_Fe_B2018                # ΔQFM Fe data + B2018
 dQFM_S_M2005                 # ΔQFM S data + IPA model
 dQFM_S_J2010                 # ΔQFM S data + J2010
 dQFM_S_BW2023                # ΔQFM S data + BW2023
+```
+
+**`results/modelling/dQFM_Moretti2005_on_Fe3_adjustment.csv`**
+
+Legacy format file containing:
+```
+sample                       # Sample name
+dFMQ                         # ΔQFM from IPA Fe³⁺ optimization only
 ```
 
 ## Key Functions

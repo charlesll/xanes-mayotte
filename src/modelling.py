@@ -660,8 +660,8 @@ def main():
     
     # Plot legend entries (empty plots for legend)
     plt.plot([], [], "o", mec="k", mfc="k", label="MELTS-OSaS")
-    plt.plot([], [], "D", mfc="none", mec="k", label="Fe redox state (shifted)")
-    plt.plot([], [], "<", color="k", label="S redox state")
+    plt.plot([], [], "D", mfc="none", mec="k", label="Fe redox (IPA, -0.5)")
+    plt.plot([], [], "<", color="k", label="S redox (BW2023)")
     
     # Plot each point individually with CMYK colors
     for i in range(len(data_)):
@@ -701,6 +701,12 @@ def main():
     df_out.to_csv("../results/dQFM_models.csv", 
                  index=False)
     print("      Saved dQFM_models.csv")
+    
+    # Save legacy format for compatibility
+    df_legacy = pd.DataFrame({"sample": data_.loc[:, "Produit"], "dFMQ": dQFM_Fe3})
+    df_legacy.to_csv("../results/modelling/dQFM_Moretti2005_on_Fe3_adjustment.csv", 
+                    index=False)
+    print("      Saved dQFM_Moretti2005_on_Fe3_adjustment.csv")
     
     print("\n" + "="*80)
     print("Modelling complete!")

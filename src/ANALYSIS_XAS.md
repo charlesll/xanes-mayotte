@@ -60,7 +60,7 @@ Mayotte_publication/
 
 ### Results (CSV)
 
-**`results/Fe_.csv`**:
+**`results/Fe_res.csv`**:
 - Sample name
 - Fe²⁺ peak position (eV)
 - Fe³⁺ peak position (eV)
