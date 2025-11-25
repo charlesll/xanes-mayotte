@@ -7,39 +7,21 @@
 
 ## Overview
 
-This script performs thermodynamic modelling of Fe and S redox states in basaltic melts using the **Moretti & Ottonello (2005)** Ionic Polymeric Approach (IPA), implemented in the **ctsfg6 Fortran code**.
+This script performs thermodynamic modelling of Fe and S redox states in basaltic melts using the Ionic Polymeric Approach (IPA), implemented in the **ctsfg6 Fortran code**.
 
 ## Methodology
 
 ### Models Implemented
 
-**Ionic Polymeric Approach (Moretti, 2005)**
-- Thermochemical model
-- Inputs: Composition, T, P, fO₂, fS₂
-- Outputs: Fe³⁺/Feᵀᴼᵀ, S⁶⁺/Sᵀᴼᵀ, S_total (ppm)
-- Implementation: ctsfg6 Fortran code
+**For iron**
+- IPA
+- B2018
+- KC1991
 
-**Borisov et al. (2018)**
-- Empirical parameterization for Fe³⁺/Feᵀᴼᵀ
-- Inputs: Composition, T, P, fO₂
-- Forward: fO₂ → Fe³⁺/Feᵀᴼᵀ
-- Inverse: Fe³⁺/Feᵀᴼᵀ → fO₂
-
-**Kress & Carmichael (1991)**
-- Classic empirical model
-- Widely used reference
-- Temperature and composition dependent
-
-**Jugo et al. (2010)**
-- Empirical model for S⁶⁺/Sᵀᴼᵀ
-- Function of ΔFMQ:
-```python
-S6/STOT = 1 / (1 + 10^(2.1 - 2*ΔFMQ))
-```
-
-**Nash et al. (2019)**
-- S speciation based on Fe³⁺/Fe²⁺ and T
-- From XANES measurements
+**For sulfur**
+- J2010
+- N2019 (based on iron results)
+- BW2023 (in Results_synthese.xlsx spreadsheet)
 
 ### Optimization Strategy
 
@@ -50,7 +32,7 @@ The script performs inverse modelling to find optimal fO₂ values by minimizing
 minimize RMSE(Fe³⁺/Feᵀᴼᵀ_calculated - Fe³⁺/Feᵀᴼᵀ_measured)
 ```
 - Method: Powell (scipy.optimize)
-- Initial guess: Kress-Carmichael (1991) solution
+- Initial guess: KC1991 solution
 - Optimizes one fO₂ value per sample
 
 #### Approach 2: Fit S⁶⁺/Sᵀᴼᵀ (Secondary)
@@ -60,10 +42,11 @@ minimize RMSE(S⁶⁺/Sᵀᴼᵀ_calculated - S⁶⁺/Sᵀᴼᵀ_measured)
 - Independent optimization per sample
 - Initial guess: log₁₀(fO₂) = -11.0
 - Requires S redox measurements
+- S redox calculated by IPA, J2010, 
 
 #### Approach 3: Empirical Models
-- Jugo (2010): Direct calculation from ΔFMQ
-- Nash (2019): Function of Fe redox and T
+- J2010: Direct calculation from ΔFMQ
+- N2019: Function of Fe redox and T
 
 ## Input Data
 
@@ -89,17 +72,17 @@ K2O
 S_ppm          # Total S (ppm)
 Fe3            # Measured Fe³⁺/Feᵀᴼᵀ
 S6             # Measured S⁶⁺/Sᵀᴼᵀ (optional)
-dFMQ_Boulliung2023  # ΔFMQ from S redox (Boulliung et al. 2023, see the corresponding Excel sheet for calculation)
+dFMQ_Boulliung2023  # ΔFMQ from S redox (BW2023, see the corresponding Excel sheet for calculation)
 C, M, Y, K     # CMYK color codes for plotting
 ```
 
 **Additional sheet: "Bell_2025"**
 
-Contains MELTS-OSaS thermodynamic calculations from Bell (2025)
+Contains MELTS-OSaS thermodynamic calculations from B2025
 
 **Additional sheet: "Boulliung_2023"**
 
-Contains the calculation of sulfur redox state using the Boulliung and Wood (2023) model.
+Contains the calculation of sulfur redox state using the BW2023 model.
 
 **Note**: The synthese sheet was compiled manually from the results of the XAS analysis script (`analysis_publication.py`). The Bell_2025 sheet contains independent thermodynamic model results.
 
@@ -108,9 +91,9 @@ Contains the calculation of sulfur redox state using the Boulliung and Wood (202
 ```
 [1] Load Data
     ↓
-[2] Kress-Carmichael Optimization (initial guess)
+[2] KC1991 Optimization (initial guess)
     ↓
-[3] Moretti (2005) Optimization - Fe³⁺ adjustment
+[3] IPA Optimization - Fe³⁺ adjustment
     FOR EACH SAMPLE:
       - Prepare composition input
       - Write INPUT.txt and COMPO.txt
@@ -119,13 +102,12 @@ Contains the calculation of sulfur redox state using the Boulliung and Wood (202
       - Calculate RMSE vs. measured Fe³⁺/Feᵀᴼᵀ
       - Optimize fO₂ to minimize RMSE
     ↓
-[4] Moretti (2005) Optimization - S⁶⁺ adjustment (if data available)
+[4] IPA Optimization - S⁶⁺ adjustment (if data available)
     Similar to step 3, but fitting S⁶⁺/Sᵀᴼᵀ
     ↓
 [5] Empirical Model Calculations
-    - Jugo (2010) for S⁶⁺/Sᵀᴼᵀ
-    - Nash (2019) for S⁶⁺/Sᵀᴼᵀ
-    - Borisov (2018) for comparison
+    - J2010 for S⁶⁺/Sᵀᴼᵀ
+    - BW2023 for S⁶⁺/Sᵀᴼᵀ
     ↓
 [6] Calculate ΔQFM values
     ↓
@@ -152,11 +134,11 @@ Contains the calculation of sulfur redox state using the Boulliung and Wood (202
 
 **`dQFM_Fe3.pdf`**
 - ΔQFM comparison for Fe³⁺-based models
-- Moretti (2005) vs. Borisov (2018) vs. Kress-Carmichael (1991)
+- IPA vs. B2018 vs. KC1991
 
 **`dQFM_S6.pdf`**
 - ΔQFM comparison for S⁶⁺-based models  
-- Moretti (2005) vs. Jugo (2010) vs. Nash (2019)
+- IPA vs. J2010 vs. BW2023
 
 **`dFMQ_allmethods.pdf`**
 - Comparison of all fO₂ determination methods
@@ -169,28 +151,19 @@ Contains the calculation of sulfur redox state using the Boulliung and Wood (202
 - Color-coded by sample using CMYK values
 - Uses `dFMQ` data from Bell_2025 sheet in Results_synthese.xlsx
 
-### Results (`results/modelling/`)
+### Results (`results/`)
 
-**`dQFM_Moretti2005_on_Fe3_adjustment.csv`**
+**`dQFM_Models.csv`**
 
 Columns:
 ```
-sample                          # Sample name
-T_C                            # Temperature (°C)
-log_fO2_M2005_Fe3             # Optimized log₁₀(fO₂) from Fe fit
-dQFM_M2005_Fe3                # ΔQFM from Fe fit
-log_fO2_M2005_S6              # Optimized log₁₀(fO₂) from S fit
-dQFM_M2005_S6                 # ΔQFM from S fit
-dQFM_B2018                    # ΔQFM from Borisov (2018)
-dQFM_KC1991                   # ΔQFM from Kress-Carmichael (1991)
-dQFM_Ju2010                   # ΔQFM from Jugo (2010)
-Fe3_measured                  # Measured Fe³⁺/Feᵀᴼᵀ
-Fe3_M2005                     # Calculated Fe³⁺/Feᵀᴼᵀ (Moretti)
-Fe3_B2018                     # Calculated Fe³⁺/Feᵀᴼᵀ (Borisov)
-S6_measured                   # Measured S⁶⁺/Sᵀᴼᵀ
-S6_M2005                      # Calculated S⁶⁺/Sᵀᴼᵀ (Moretti)
-S6_Ju2010                     # Calculated S⁶⁺/Sᵀᴼᵀ (Jugo)
-S6_Na2019                     # Calculated S⁶⁺/Sᵀᴼᵀ (Nash)
+sample                       # Sample name
+dQFM_Fe_M2005                # ΔQFM Fe data + IPA model
+dQFM_Fe_KC1991               # ΔQFM Fe data + KC1991
+dQFM_Fe_B2018                # ΔQFM Fe data + B2018
+dQFM_S_M2005                 # ΔQFM S data + IPA model
+dQFM_S_J2010                 # ΔQFM S data + J2010
+dQFM_S_BW2023                # ΔQFM S data + BW2023
 ```
 
 ## Key Functions
@@ -289,18 +262,6 @@ chmod +x ctsfg6
 - Try different initial guess
 - Check measured Fe³⁺/Feᵀᴼᵀ is physically reasonable (0-1)
 - Verify temperature and composition are realistic
-
-## References
-
-### Primary Model
-- **Moretti & Ottonello (2005)** *Geochimica et Cosmochimica Acta*, 69, 801-823
-
-### Comparison Models
-- **Borisov et al. (2018)** *Contributions to Mineralogy and Petrology*, 173:98
-- **Kress & Carmichael (1991)** - *Contributions to Mineralogy and Petrology*, 108, 82-92
-- **Jugo et al. (2010)** - *Geochimica et Cosmochimica Acta*, 74, 5926-5938
-- **Nash et al. (2019)** - *Earth and Planetary Science Letters*, 507, 187-198
-- **Boulliung and Wood (2023)** - *Contri Mineral Petrol*, 178, 56
 
 ## Support
 

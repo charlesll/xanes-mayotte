@@ -206,11 +206,13 @@ Mayotte_publication/
 │   ├── Fe_.csv                       # Fe redox results
 │   ├── S_res.csv                     # S speciation results
 │   ├── colors.csv                    # Color scheme
+│   ├── dQFM_models.csv               # dFMQ modelling results
 (read-only)
 │   ├── Results_synthese.xlsx         # Combined results (input for modelling, modify manually using the Fe_ and S_res files)
-(read-write)
-│   └── modelling/                    # Thermodynamic results
-│       └── dQFM_Moretti2005_on_Fe3_adjustment.csv
+│   └── MELTS-OSaS/                   # MELTS-OSaS FOLDER
+│        ├── OSaS_MAY_Input.xlsx      # input file
+│        ├── Olivine_Spinel_OxygenBarometry_Mayotte.ipynb   # code, run with ThermoEngine docker
+│        └── MELTSOSaS_OSaS_MAY_FO2_CALC.xlsx           # MELTS-OSaS results
 │
 ├── figures/                          # Output: Publication figures (read-write)
 │   ├── Iron/                         # Individual Fe spectra PDFs
@@ -228,18 +230,12 @@ Mayotte_publication/
 │   ├── Fe_beam_damage.pdf            # Beam damage analysis
 │   └── S_damage.pdf                  # S beam damage
 │
-├── MELTS-OSaS/                      # MELTS-OSaS FOLDER
-│   └── ...                           # MELTS-OSaS FILES, INCLUDING MAYOTTE INPUT
-│
 ├── Dockerfile                        # Docker configuration
 ├── docker-run.sh                     # Docker helper script
 ├── requirements.txt                  # Python dependencies
 │
 ├── README.md                         # This file
-├── USAGE.md                          # Detailed usage guide
-├── DOCKER.md                         # Docker technical details
-├── QUICK_START.md                    # Getting started guide
-├── PROJECT_ARCHITECTURE.txt          # Technical architecture
+└── DOCKER.md                         # Docker technical details
 ```
 
 ---
@@ -273,12 +269,11 @@ Mayotte_publication/
 - `dQFM_S6.pdf` - ΔQFM comparison for S-based models
 - `dFMQ_allmethods.pdf` - Comprehensive comparison (MELTS-OSaS, Fe redox, S redox)
 
-**Results** (`results/modelling/`):
-- `dQFM_Moretti2005_on_Fe3_adjustment.csv` - Complete results:
-  - Optimized log₁₀(fO₂) values
-  - ΔQFM from Fe and S constraints
-  - Comparison with empirical models (B2018, KC1991, J2010, N2019)
-  - Calculated vs. measured Fe³⁺/Feᵀᴼᵀ and S⁶⁺/Sᵀᴼᵀ
+**Results** (`results/`):
+- `dQFM_Models.csv` - calculated deviations to the Fayalite-Magnetite-Quartz buffer (ΔQFM):
+  - ΔQFM from Fe data and various models (IPA, KC1991, B2018)
+  - ΔQFM from S data and various models (IPA, J2010, BW2023)
+  - ΔQFM from olivine-spinel-melt silica activity (B2025)
 
 ---
 
@@ -287,7 +282,6 @@ Mayotte_publication/
 - **[src/ANALYSIS_XAS.md](src/ANALYSIS_XAS.md)** - XAS analysis script documentation
 - **[src/MODELLING_THERMODYNAMIC.md](src/MODELLING_THERMODYNAMIC.md)** - Thermodynamic modelling documentation
 - **[DOCKER.md](DOCKER.md)** - Docker technical details and troubleshooting
-- **[PROJECT_ARCHITECTURE.txt](PROJECT_ARCHITECTURE.txt)** - System architecture
 
 ---
 
@@ -296,23 +290,15 @@ Mayotte_publication/
 ### XAS Analysis
 - **Fe K-edge**: Pre-edge removal (Larch), pseudo-Voigt fitting, centroid method
 - **S K-edge**: Background removal (Rampy), multi-Gaussian deconvolution
-- **Calibrations**: Fiege et al. 2017, Wilke et al. 2005, Zhang et al. 2018 (Fe); Lerner et al. 2021, Jugo et al. 2010 (S)
+- **Calibrations**: Fe => F2017, W2005, Z2018; S => L2021, J2010, LL2023 (this study, not used)
 
 ### Thermodynamic Modelling
 - **Primary**: Moretti & Ottonello (2005) - Ionic Polymeric Approach (IPA)
 - **Implementation**: [ctsfg6 Fortran code](https://github.com/charlesll/sulfur-magma) (2632 lines, Fortran 77)
 - **Method**: Inverse modelling with Powell optimization
-- **Comparison**: Borisov 2018, Kress-Carmichael 1991, Jugo 2010, Nash 2019, Boulliung and Wood (2023, Excel calculation)
+- **Comparison**: B2018, KC1991, J2010, BW2023 (Excel calculation)
 
-### MELTS-OSaS
-
-We provide the notebook and input we used in the publication to determine the fO2 given the composition of melt, olivine and spinel.
-
-The code is a direct minor modification of the Waters et al. (2025) software, see [https://zenodo.org/records/13988167](https://zenodo.org/records/13988167).
-
-The best way to run it is through the [ThermoEngine plateform](https://thermoenginelite.readthedocs.io).
-
-See the `results/MELTS-OSaS/`folder for details.
+- **MELTS-OSaS**: We provide the notebook and input we used in the publication to determine the fO2 given the composition of melt, olivine and spinel. The code is a direct minor modification of the Waters et al. (2025) software, see [https://zenodo.org/records/13988167](https://zenodo.org/records/13988167). The best way to run it is through the [ThermoEngine plateform](https://thermoenginelite.readthedocs.io). See the `results/MELTS-OSaS/` folder for code and input files. You can directly copied the results in the `results/Results_synthese.xlsx`spreadsheet prior to running the modelling section of the code.
 
 ---
 

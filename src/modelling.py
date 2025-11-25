@@ -690,11 +690,17 @@ def main():
     # STEP 8: Save results
     # =========================================================================
     print("\n[8/8] Saving results...")
-    data_["dQFM_M2005"] = dQFM_Fe3
-    df_out = pd.DataFrame({"sample": data_.loc[:, "Produit"], "dFMQ": dQFM_Fe3})
-    df_out.to_csv("../results/modelling/dQFM_Moretti2005_on_Fe3_adjustment.csv", 
+    dic_out = {"sample": data_.loc[:, "Produit"], 
+               "dQFM_Fe_M2005": dQFM_Fe3,
+               "dQFM_Fe_KC1991": dQFM_KC,
+               "dQFM_Fe_B2018": dQFM_B2018,
+               "dQFM_S_M2005": dQFM_S6,
+               "dQFM_S_J2010": dFMQ_J2010,
+               "dQFM_S_BW2023": data_.dFMQ_Boulliung2023}
+    df_out = pd.DataFrame(dic_out)
+    df_out.to_csv("../results/dQFM_models.csv", 
                  index=False)
-    print("      Saved dQFM_Moretti2005_on_Fe3_adjustment.csv")
+    print("      Saved dQFM_models.csv")
     
     print("\n" + "="*80)
     print("Modelling complete!")
