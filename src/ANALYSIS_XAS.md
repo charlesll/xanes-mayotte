@@ -19,8 +19,8 @@ This script performs complete X-ray Absorption Spectroscopy (XAS) analysis for M
 - Determine Fe³⁺/Feᵀᴼᵀ ratios
 - Quantify S⁶⁺/Sᵀᴼᵀ speciation from S K-edge XANES spectra using multiple methods:
   - Lerner et al. 2021 (based on peak areas)
-  - Jugo 2010 (intensity-based)
-  - Jugo 2010 revised by us (LL2023, not convincing?)
+  - Jugo 2010 (intensity-based, used for publication)
+  - Jugo 2010 revised by us (LL2023, not convincing?, not used for publication)
 
 ## Input Data
 

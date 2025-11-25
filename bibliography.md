@@ -1,4 +1,5 @@
 # Bibliography
+
 - **KC1991**: *Kress & Carmichael (1991) Contributions to Mineralogy and Petrology, 108, 82-92*
 - **M2005 (IPA model)**: *Moretti & Ottonello (2005) Geochimica et Cosmochimica Acta, 69, 801-823*
 - **W2005** *Wilke et al. (2005) Chemical Geology, 220, 143–161*

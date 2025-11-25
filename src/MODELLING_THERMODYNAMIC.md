@@ -20,33 +20,29 @@ This script performs thermodynamic modelling of Fe and S redox states in basalti
 
 **For sulfur**
 - J2010
-- N2019 (based on iron results)
 - BW2023 (in Results_synthese.xlsx spreadsheet)
 
 ### Optimization Strategy
 
 The script performs inverse modelling to find optimal fO₂ values by minimizing the difference between calculated and measured redox ratios.
 
-#### Approach 1: Fit Fe³⁺/Feᵀᴼᵀ (Primary)
+#### Approach 1: Fit Fe³⁺/Feᵀᴼᵀ
 ```python
 minimize RMSE(Fe³⁺/Feᵀᴼᵀ_calculated - Fe³⁺/Feᵀᴼᵀ_measured)
 ```
 - Method: Powell (scipy.optimize)
 - Initial guess: KC1991 solution
 - Optimizes one fO₂ value per sample
+- Uses KC1991, B2018 and IPA models
 
-#### Approach 2: Fit S⁶⁺/Sᵀᴼᵀ (Secondary)
+#### Approach 2: Fit S⁶⁺/Sᵀᴼᵀ
 ```python
 minimize RMSE(S⁶⁺/Sᵀᴼᵀ_calculated - S⁶⁺/Sᵀᴼᵀ_measured)
 ```
-- Independent optimization per sample
+- Method: Powell (scipy.optimize)
 - Initial guess: log₁₀(fO₂) = -11.0
-- Requires S redox measurements
-- S redox calculated by IPA, J2010, 
-
-#### Approach 3: Empirical Models
-- J2010: Direct calculation from ΔFMQ
-- N2019: Function of Fe redox and T
+- Optimizes one fO₂ value per sample
+- Uses IPA & J2010 models 
 
 ## Input Data
 
@@ -54,12 +50,14 @@ minimize RMSE(S⁶⁺/Sᵀᴼᵀ_calculated - S⁶⁺/Sᵀᴼᵀ_measured)
 
 **Main sheet: "synthese"**
 
+Contain the glass compositions and some additional columns copied from either XANES peak fitting results or other calculations (BW2023 model for instance)
+
 Columns:
 ```
 sample          # Sample name
 T_start         # Temperature (°C)
 P_start         # Pressure (bar, typically 1)
-h2o            # H₂O content (wt%)
+H2O            # H₂O content (wt%)
 SiO2           # Oxide composition (wt%)
 TiO2
 Al2O3
@@ -71,7 +69,7 @@ Na2O
 K2O
 S_ppm          # Total S (ppm)
 Fe3            # Measured Fe³⁺/Feᵀᴼᵀ
-S6             # Measured S⁶⁺/Sᵀᴼᵀ (optional)
+S6             # Measured S⁶⁺/Sᵀᴼᵀ
 dFMQ_Boulliung2023  # ΔFMQ from S redox (BW2023, see the corresponding Excel sheet for calculation)
 C, M, Y, K     # CMYK color codes for plotting
 ```
@@ -91,7 +89,7 @@ Contains the calculation of sulfur redox state using the BW2023 model.
 ```
 [1] Load Data
     ↓
-[2] KC1991 Optimization (initial guess)
+[2] B2018 + KC1991 Optimization (initial guess)
     ↓
 [3] IPA Optimization - Fe³⁺ adjustment
     FOR EACH SAMPLE:
@@ -145,9 +143,9 @@ Contains the calculation of sulfur redox state using the BW2023 model.
 - X-axis: SiO₂ content (wt%)
 - Y-axis: ΔFMQ (deviation from Fayalite-Magnetite-Quartz buffer)
 - Shows three methods:
-  - MELTS-OSaS (Bell 2025): filled circles
-  - Fe redox state (Moretti 2005, shifted -0.6): open diamonds
-  - S redox state (Boulliung 2023): left triangles
+  - MELTS-OSaS (B2025): filled circles
+  - Fe redox state (IPA, shifted -0.5): open diamonds
+  - S redox state (BW2023): left triangles
 - Color-coded by sample using CMYK values
 - Uses `dFMQ` data from Bell_2025 sheet in Results_synthese.xlsx
 

@@ -14,9 +14,9 @@ Data Input:
 Processing:
 -----------
 1. Load sample compositions and measured redox states
-2. Optimize fO2 values to fit Fe3+/FeTOT ratios using Moretti (2005) model
-3. Optimize fO2 values to fit S6+/STOT ratios
-4. Compare with empirical models (Kress-Carmichael 1991, Borisov 2018, Jugo 2010)
+2. Optimize fO2 values to fit Fe3+/FeTOT ratios using IPA model
+3. Optimize fO2 values to fit S6+/STOT ratios using IPA model
+4. Compare with other models (KC1991, B2018, J2010, BW2023)
 5. Calculate dQFM values (deviation from Quartz-Fayalite-Magnetite buffer)
 6. Generate comparison figures
 
@@ -243,7 +243,7 @@ def forward_simu(data_):
 
 def objective_function_M2005(theta, mode="Fe3", theta_mode="none"):
     """
-    Objective function for optimization using Moretti 2005 model.
+    Objective function for optimization using IPA model.
     
     Parameters
     ----------
@@ -377,7 +377,7 @@ def plot_dqfm(ax, x, y, error, colors, marker='s', markersize=5, annotation=None
 
 def Ju2010(dFMQ):
     """
-    Calculate S6+/STOT from dFMQ values according to Jugo et al. 2010.
+    Calculate S6+/STOT from dFMQ values according to J2010
     
     Parameters
     ----------
@@ -394,7 +394,7 @@ def Ju2010(dFMQ):
 
 def Nash2019(Fe3_Fe2, T):
     """
-    Calculate S6+/STOT from Fe3+/Fe2+ and T according to Nash et al. 2019.
+    Calculate S6+/STOT from Fe3+/Fe2+ and T according to N2019.
     
     Parameters
     ----------
@@ -455,7 +455,7 @@ def main():
     """
     print("="*80)
     print("Mayotte Volcanic Samples - Thermodynamic Modelling")
-    print("Using Moretti (2005) model and ctsfg6 Fortran code")
+    print("Using IPA model and ctsfg6 Fortran code")
     print("="*80)
     
     # Create output directories
@@ -490,18 +490,18 @@ def main():
     QFM_values = QFM(data_.loc[:, "T_start"] + 273.15, P=350.0).values
     
     # =========================================================================
-    # STEP 2: Calculate fO2 using Borisov 2018
+    # STEP 2: Calculate fO2 using B2018
     # =========================================================================
-    print("\n[2/8] Calculating fO2 using Borisov 2018 model...")
+    print("\n[2/8] Calculating fO2 using B2018 model...")
     log10_fo2 = fo2_B2018(data_mol, data_["Fe3"], data_["T_start"] + 273.15)
     dQFM_B2018 = log10_fo2 - QFM_values
     print(f"      dQFM (B2018): Median {np.median(dQFM_B2018):.1f} | "
           f"Min {np.min(dQFM_B2018):.1f} | Max {np.max(dQFM_B2018):.1f}")
     
     # =========================================================================
-    # STEP 3: Optimize using Kress-Carmichael 1991
+    # STEP 3: Optimize using KC1991
     # =========================================================================
-    print("\n[3/8] Optimizing fO2 using Kress-Carmichael 1991...")
+    print("\n[3/8] Optimizing fO2 using KC1991 model...")
     objective_function_KC = lambda theta: np.sum(
         (redox_KC1991(data_mol, 10**theta, data_["T_start"] + 273.15) - data_["Fe3"])**2
     )
@@ -514,31 +514,31 @@ def main():
           f"Min {np.min(dQFM_KC):.1f} | Max {np.max(dQFM_KC):.1f}")
     
     # =========================================================================
-    # STEP 4: Optimize using Moretti 2005 - Fe3+ adjustment
+    # STEP 4: Optimize using IPA model - Fe3+ adjustment
     # =========================================================================
-    print("\n[4/8] Optimizing fO2 using Moretti 2005 (Fe3+ adjustment)...")
+    print("\n[4/8] Optimizing fO2 using IPA model (Fe3+ adjustment)...")
     res_Fe3 = minimize(objective_function_M2005, x0=theta_start_KC, 
                       method="Powell", args=("Fe3", False))
     preds_Fe3 = forward(res_Fe3.x, data_, theta_mode=False)
     dQFM_Fe3 = res_Fe3.x - QFM_values
-    print(f"      dQFM (M2005-Fe3): Median {np.median(dQFM_Fe3):.1f} | "
+    print(f"      dQFM (IPA-Fe3): Median {np.median(dQFM_Fe3):.1f} | "
           f"Min {np.min(dQFM_Fe3):.1f} | Max {np.max(dQFM_Fe3):.1f}")
     
     # =========================================================================
-    # STEP 5: Optimize using Moretti 2005 - S6+ adjustment
+    # STEP 5: Optimize using IPA model - S6+ adjustment
     # =========================================================================
-    print("\n[5/8] Optimizing fO2 using Moretti 2005 (S6+ adjustment)...")
+    print("\n[5/8] Optimizing fO2 using IPA model (S6+ adjustment)...")
     res_S6 = minimize(objective_function_M2005, x0=[-11.0] * nb_points, 
                      method="Powell", args=("S6", False))
     preds_S6 = forward(res_S6.x, data_, theta_mode=False)
     dQFM_S6 = res_S6.x - QFM_values
-    print(f"      dQFM (M2005-S6): Median {np.median(dQFM_S6):.1f} | "
+    print(f"      dQFM (IPA-S6): Median {np.median(dQFM_S6):.1f} | "
           f"Min {np.min(dQFM_S6):.1f} | Max {np.max(dQFM_S6):.1f}")
     
     # =========================================================================
-    # STEP 6: Compare with Jugo 2010
+    # STEP 6: Compare with J2010 model
     # =========================================================================
-    print("\n[6/8] Comparing with Jugo 2010 model...")
+    print("\n[6/8] Comparing with J2010 model...")
     res_J2010 = minimize(lambda x: np.sum((Ju2010(x) - data_.S6)**2),
                         x0=dQFM_S6, method="Powell")
     dFMQ_J2010 = res_J2010.x
@@ -640,16 +640,16 @@ def main():
     # Figure 5: dFMQ comparison - all methods
     print("      Creating dFMQ_allmethods.pdf...")
     
-    # Load Bell 2025 MELTS-OSaS data
+    # Load B2025 MELTS-OSaS data
     data_Bell2025 = pd.read_excel("../results/Results_synthese.xlsx", 
                                   sheet_name="Bell_2025")
     
-    # Merge Bell 2025 data with main data based on Sample name
+    # Merge B2025 data with main data based on Sample name
     data_merged = data_.merge(data_Bell2025, left_on='abbrev', right_on='Sample', how='left')
     
-    # Calculate dFMQ for Bell 2025 (MELTS-OSaS)
+    # Calculate dFMQ for B2025 (MELTS-OSaS)
     dFMQ_Bell2025 = data_merged['dFMQ'].values
-    print("      Merged MELTS-OSaS data from Bell 2025")
+    print("      Merged MELTS-OSaS data from B2025")
     print("Values are:")
     print(f"  dFMQ (MELTS-OSaS): Median {np.nanmedian(dFMQ_Bell2025):.1f} | "
           f"Min {np.nanmin(dFMQ_Bell2025):.1f} | Max {np.nanmax(dFMQ_Bell2025):.1f}")
@@ -667,14 +667,14 @@ def main():
     for i in range(len(data_)):
         point_color = data_.loc[i, ["C", "M", "Y", "K"]].values[:]
         
-        # MELTS-OSaS (Bell 2025)
+        # MELTS-OSaS (B2025)
         if not np.isnan(dFMQ_Bell2025[i]):
             plt.plot(X_axis_[i], dFMQ_Bell2025[i], "o", mec="k", color=point_color)
         
-        # Fe redox state (Moretti 2005) - shifted by -0.6
+        # Fe redox state (IPA model) - shifted by -0.5
         plt.plot(X_axis_[i], dQFM_Fe3[i] - 0.5, "D", mfc="none", color=point_color)
         
-        # S redox state (Boulliung 2023) - only for samples with S6 measurements
+        # S redox state (BW2023) - only for samples with S6 measurements
         if data_.S6_meas[i] == True and not np.isnan(data_.dFMQ_Boulliung2023[i]):
             plt.plot(X_axis_[i], data_.dFMQ_Boulliung2023[i], "<", color=point_color)
     

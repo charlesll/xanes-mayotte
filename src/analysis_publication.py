@@ -211,8 +211,8 @@ for count, i in enumerate(dataliste.loc[:, "filename"]):
 
 print("\n[2.3] Saving Fe glass results...")
 dataliste_selected = dataliste[dataliste.check_good != 0]
-dataliste_selected.to_csv("../results/Fe_.csv")
-print(f"  Saved {len(dataliste_selected)} good quality samples to ../results/Fe_.csv")# Calculate statistics by sample
+dataliste_selected.to_csv("../results/Fe_res.csv")
+print(f"  Saved {len(dataliste_selected)} good quality samples to ../results/Fe_res.csv")# Calculate statistics by sample
 print("\n[2.4] Sample statistics (mean ± std):")
 dataliste_stats = dataliste_selected.drop("filename", axis=1).copy()
 sample_means = dataliste_stats.groupby("sample").mean()
