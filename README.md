@@ -305,21 +305,32 @@ Mayotte_publication/
 
 ## 📖 Citation
 
-If you use this code in your research, please cite:
+If you use this code or data in your research, please cite:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1234.svg)](https://doi.org/10.5281/zenodo.1234)
 
 ```bibtex
 @software{mayotte_xas_2025,
-  author = {Charles Le Losq, Roberto Moretti, Étienne Médard, Carole Berthod, Federica Schiavi, Nicolas Trcera, Élodie Lebas},
-  title = {XAS Analysis and Thermodynamic Modelling for Mayotte Volcanic Samples},
+  author = {Le Losq, Charles and 
+            Moretti, Roberto and 
+            Médard, Étienne and 
+            Berthod, Carole and 
+            Schiavi, Federica and 
+            Trcera, Nicolas and 
+            Lebas, Élodie},
+  title = {Data and Code for XAS Analysis and Thermodynamic Modelling for Mayotte Volcanic Samples},
   year = {2025},
+  version = {1.0.0},
   publisher = {Zenodo},
-  url = {https://github.com/[YOUR_REPO]}
+  doi = {10.5281/zenodo.1234},
+  url = {https://github.com/CharlesLeLosq/xanes-mayotte}
 }
 ```
 
+**Citation file**: See [CITATION.cff](CITATION.cff) for structured citation metadata (GitHub-compatible).
+
 **Related Publications**:
-- Charles Le Losq, Roberto Moretti, Etienne Médard, Carole Berthod, Federica Schiavi, Nicolas Trcera, Elodie Lebas (2025) Oxidation state of Mayotte magmatic series: insights from Fe and S
-K-edge XANES spectroscopy. Submitted to Journal Volcanica.
+- Charles Le Losq, Roberto Moretti, Étienne Médard, Carole Berthod, Federica Schiavi, Nicolas Trcera, Élodie Lebas (2025) Oxidation state of Mayotte magmatic series: insights from Fe and S K-edge XANES spectroscopy. *Submitted to Journal Volcanica*.
 
 ---
 

@@ -1,18 +1,6 @@
 # License
 
-This project contains data and code regarding the analysis of samples from the East Mayotte Volcanic Chain.
-
 The source code and data are made freely available under a CC BY 4.0 licence, which terms are available below.
-
-## Citation
-
-According to the Licence CC BY 4.0, if you use this code with or without modifications, you need to cite:
-
-```
-Charles Le Losq, Roberto Moretti,  (2025). XAS Analysis for Mayotte Volcanic Samples. 
-```
-
-## CC BY 4.0
 
 Attribution 4.0 International
 
