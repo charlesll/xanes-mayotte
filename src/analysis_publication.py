@@ -496,7 +496,7 @@ axes[1].annotate("(b) 7114.0 eV", xy=(0.02,0.97), xycoords="axes fraction", ha="
 axes[1].set_ylim(1.3,1.7)
 
 plt.xlabel("Seconds after exposure")
-fig.text(0.04, 0.5, 'Normalized absorbance', va='center', rotation='vertical')
+fig.text(0.04, 0.5, 'Raw absorption', va='center', rotation='vertical')
 plt.tight_layout(pad=2.0)
 plt.savefig('../figures/Fe_beam_damage.pdf')
 plt.close()
