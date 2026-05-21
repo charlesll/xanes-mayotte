@@ -3,7 +3,8 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/license-cc-by.svg)](LICENSE.md)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17713803.svg)](https://doi.org/10.5281/zenodo.17713803)
+[![DOI](https://zenodo.org/badge/{github_id}.svg)](https://zenodo.org/badge/latestdoi/{github_id})
+
 
 X-ray Absorption Spectroscopy (XAS) analysis and thermodynamic modelling pipeline for Mayotte volcanic samples, including Fe K-edge and S K-edge XANES analysis with redox state determination.
 
@@ -306,27 +307,9 @@ Mayotte_publication/
 
 ## 📖 Citation
 
-If you use this code or data in your research, please cite:
+If you use this code or data in your research, please cite the Zenodo repository:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1234.svg)](https://doi.org/10.5281/zenodo.1234)
-
-```bibtex
-@software{mayotte_xas_2025,
-  author = {Le Losq, Charles and 
-            Moretti, Roberto and 
-            Médard, Étienne and 
-            Berthod, Carole and 
-            Schiavi, Federica and 
-            Trcera, Nicolas and 
-            Lebas, Élodie},
-  title = {charlesll/xanes-mayotte: 1.0.3 (1.0.3).},
-  year = {2025},
-  version = {1.0.3},
-  publisher = {Zenodo},
-  doi = {10.5281/zenodo.17713803},
-  url = {https://github.com/charlesll/xanes-mayotte}
-}
-```
+[![DOI](https://zenodo.org/badge/{github_id}.svg)](https://zenodo.org/badge/latestdoi/{github_id})
 
 **Citation file**: See [CITATION.cff](CITATION.cff) for structured citation metadata (GitHub-compatible).
 
