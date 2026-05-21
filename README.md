@@ -319,9 +319,9 @@ If you use this code or data in your research, please cite:
             Schiavi, Federica and 
             Trcera, Nicolas and 
             Lebas, Élodie},
-  title = {charlesll/xanes-mayotte: 1.0.2 (1.0.2).},
+  title = {charlesll/xanes-mayotte: 1.0.3 (1.0.3).},
   year = {2025},
-  version = {1.0.2},
+  version = {1.0.3},
   publisher = {Zenodo},
   doi = {10.5281/zenodo.17713803},
   url = {https://github.com/charlesll/xanes-mayotte}

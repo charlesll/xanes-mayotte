@@ -1,6 +1,6 @@
 # Docker Technical Documentation
 
-**Image**: `mayotte-xas:1.0.0`  
+**Image**: `mayotte-xas:1.0.3`  
 **Base**: `python:3.10-slim` (Debian Trixie)  
 **Author**: Charles Le Losq  
 **Last updated**: November 2025
@@ -168,7 +168,7 @@ Wrapper script providing user-friendly interface to Docker commands:
 
 #### build_image()
 ```bash
-docker build -t mayotte-xas:1.0.0 .
+docker build -t mayotte-xas:1.0.3 .
 ```
 
 #### run_analysis()
@@ -179,7 +179,7 @@ docker run --rm \
     -v "$(pwd)/tables/liste.xlsx:/home/xasuser/mayotte/tables/liste.xlsx:ro" \
     -v "$(pwd)/figures:/home/xasuser/mayotte/figures" \
     -v "$(pwd)/results:/home/xasuser/mayotte/results" \
-    mayotte-xas:1.0.0
+    mayotte-xas:1.0.3
 ```
 
 **Volume Mounts**:
@@ -195,7 +195,7 @@ docker run --rm \
     --name mayotte_xas_analysis_model \
     -v "$(pwd)/figures:/home/xasuser/mayotte/figures" \
     -v "$(pwd)/results:/home/xasuser/mayotte/results" \
-    mayotte-xas:1.0.0 python modelling.py
+    mayotte-xas:1.0.3 python modelling.py
 ```
 
 **Minimal mounts** (only needs results/ as input)
@@ -208,7 +208,7 @@ docker run --rm \
     -v "$(pwd)/tables/liste.xlsx:/home/xasuser/mayotte/tables/liste.xlsx:ro" \
     -v "$(pwd)/figures:/home/xasuser/mayotte/figures" \
     -v "$(pwd)/results:/home/xasuser/mayotte/results" \
-    mayotte-xas:1.0.0 \
+    mayotte-xas:1.0.3 \
     bash -c "python analysis_publication.py && python modelling.py"
 ```
 
@@ -271,7 +271,7 @@ docker run --rm \
 4. **Python Packages**: Install numpy, scipy, larch, etc. (~200 MB)
 5. **Code Copy**: Copy project files (~5 MB)
 6. **Fortran Compilation**: Compile ctsfg6 (~5 seconds)
-7. **Image Creation**: Final image tagged as `mayotte-xas:1.0.0`
+7. **Image Creation**: Final image tagged as `mayotte-xas:1.0.3`
 
 **Total Time**: 3-10 minutes (depends on internet speed)
 
@@ -290,7 +290,7 @@ docker run --rm \
  => [7/10] RUN cd src && gfortran ctsfg6.for -o ctsfg6...
  => [8/10] RUN mkdir -p figures/Iron...
  => exporting to image
- => => naming to docker.io/library/mayotte-xas:1.0.0
+ => => naming to docker.io/library/mayotte-xas:1.0.3
 ```
 
 ### Verification
@@ -327,7 +327,7 @@ libopenblas-dev \  # ✅ Use this
 **Debug**:
 ```bash
 # Build with debug output
-docker build --progress=plain -t mayotte-xas:1.0.0 .
+docker build --progress=plain -t mayotte-xas:1.0.3 .
 
 # Check ctsfg6.for syntax
 docker run --rm -v $(pwd)/src:/src python:3.10-slim bash -c "
@@ -369,7 +369,7 @@ docker run --rm -v $(pwd)/xas:/data alpine ls -lh /data/iron/
 **Debug**:
 ```bash
 # Check ctsfg6 exists in image
-docker run --rm mayotte-xas:1.0.0 ls -lh /home/xasuser/mayotte/src/ctsfg6
+docker run --rm mayotte-xas:1.0.3 ls -lh /home/xasuser/mayotte/src/ctsfg6
 
 # Should show executable with +x permission
 ```
@@ -427,7 +427,7 @@ exit
 docker run --rm \
     -v $(pwd)/figures:/home/xasuser/mayotte/figures \
     -v $(pwd)/results:/home/xasuser/mayotte/results \
-    mayotte-xas:1.0.0 python -c "
+    mayotte-xas:1.0.3 python -c "
 import numpy as np
 print('NumPy version:', np.__version__)
 "
@@ -442,7 +442,7 @@ docker run --rm \
     -v $(pwd)/tables/liste.xlsx:/home/xasuser/mayotte/tables/liste.xlsx:ro \
     -v $(pwd)/figures:/home/xasuser/mayotte/figures \
     -v $(pwd)/results:/home/xasuser/mayotte/results \
-    mayotte-xas:1.0.0 python -u analysis_publication.py
+    mayotte-xas:1.0.3 python -u analysis_publication.py
 ```
 
 **`-u` flag**: Unbuffered Python output (see prints immediately)
@@ -457,7 +457,7 @@ docker run --rm \
     -v $(pwd)/tables/liste.xlsx:/home/xasuser/mayotte/tables/liste.xlsx:ro \
     -v $(pwd)/figures:/home/xasuser/mayotte/figures \
     -v $(pwd)/results:/home/xasuser/mayotte/results \
-    mayotte-xas:1.0.0 python analysis_publication.py
+    mayotte-xas:1.0.3 python analysis_publication.py
 ```
 
 **Warning**: ctsfg6 must be compiled on host
@@ -473,7 +473,7 @@ docker run --rm \
     -v $(pwd)/tables/liste.xlsx:/home/xasuser/mayotte/tables/liste.xlsx:ro \
     -v $(pwd)/figures:/home/xasuser/mayotte/figures \
     -v $(pwd)/results:/home/xasuser/mayotte/results \
-    mayotte-xas:1.0.0
+    mayotte-xas:1.0.3
 ```
 
 ### Multi-Container (Docker Compose)
@@ -484,7 +484,7 @@ version: '3.8'
 
 services:
   xas-analysis:
-    image: mayotte-xas:1.0.0
+    image: mayotte-xas:1.0.3
     container_name: mayotte_xas
     volumes:
       - ./xas:/home/xasuser/mayotte/xas:ro
@@ -494,7 +494,7 @@ services:
     command: python analysis_publication.py
     
   modelling:
-    image: mayotte-xas:1.0.0
+    image: mayotte-xas:1.0.3
     container_name: mayotte_model
     depends_on:
       - xas-analysis
@@ -519,7 +519,7 @@ docker-compose up
 # Edit requirements.txt (add new package or update version)
 
 # Rebuild image (no cache for pip install)
-docker build --no-cache-filter pip -t mayotte-xas:1.0.0 .
+docker build --no-cache-filter pip -t mayotte-xas:1.0.3 .
 ```
 
 ### Update System Packages
@@ -528,7 +528,7 @@ docker build --no-cache-filter pip -t mayotte-xas:1.0.0 .
 # Edit Dockerfile (add new apt package)
 
 # Full rebuild
-docker build --no-cache -t mayotte-xas:1.0.0 .
+docker build --no-cache -t mayotte-xas:1.0.3 .
 ```
 
 ### Tag New Version
@@ -538,7 +538,7 @@ docker build --no-cache -t mayotte-xas:1.0.0 .
 docker build -t mayotte-xas:1.1.0 .
 
 # Keep old version
-docker tag mayotte-xas:1.0.0 mayotte-xas:1.0.0-backup
+docker tag mayotte-xas:1.0.3 mayotte-xas:1.0.3-backup
 
 # Update docker-run.sh IMAGE_TAG variable
 ```
@@ -547,7 +547,7 @@ docker tag mayotte-xas:1.0.0 mayotte-xas:1.0.0-backup
 
 ```bash
 # Save image to file
-docker save mayotte-xas:1.0.0 | gzip > mayotte-xas-1.0.0.tar.gz
+docker save mayotte-xas:1.0.3 | gzip > mayotte-xas-1.0.3.tar.gz
 
 # Transfer file to another machine, then:
 docker load < mayotte-xas-1.0.0.tar.gz
