@@ -6,7 +6,7 @@ FROM python:3.10-slim
 # Métadonnées
 LABEL maintainer="lelosq@ipgp.fr"
 LABEL description="Container Docker pour analyse XAS des échantillons volcaniques de Mayotte"
-LABEL version="1.0.3"
+LABEL version="1.0.5"
 
 # Variables d'environnement
 ENV PYTHONUNBUFFERED=1 \

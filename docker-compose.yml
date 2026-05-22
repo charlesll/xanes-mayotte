@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: mayotte-xas:1.0.3
+    image: mayotte-xas:1.0.5
     container_name: mayotte_xas_analysis
     
     # Monter les volumes pour accès aux données et récupération des résultats

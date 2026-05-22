@@ -5,7 +5,7 @@
 set -e  # Stop on error
 
 IMAGE_NAME="mayotte-xas"
-IMAGE_TAG="1.0.3"
+IMAGE_TAG="1.0.5"
 CONTAINER_NAME="mayotte_xas_analysis"
 
 # Colors for display
